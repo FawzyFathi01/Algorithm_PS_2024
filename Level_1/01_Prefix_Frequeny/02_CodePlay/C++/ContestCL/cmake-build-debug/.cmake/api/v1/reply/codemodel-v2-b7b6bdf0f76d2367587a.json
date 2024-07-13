@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/#00 Core Basics/00_A_PS_2024/Level_1/01_Prefix_Freqance/02_Play_Code/C++/ContestCL/cmake-build-debug",
-		"source" : "D:/#00 Core Basics/00_A_PS_2024/Level_1/01_Prefix_Freqance/02_Play_Code/C++/ContestCL"
+		"build" : "D:/00_Core_Basics/00_Algorithm_PS_2024/Level_1/01_Prefix_Frequeny/02_CodePlay/C++/ContestCL/cmake-build-debug",
+		"source" : "D:/00_Core_Basics/00_Algorithm_PS_2024/Level_1/01_Prefix_Frequeny/02_CodePlay/C++/ContestCL"
 	},
 	"version" : 
 	{
