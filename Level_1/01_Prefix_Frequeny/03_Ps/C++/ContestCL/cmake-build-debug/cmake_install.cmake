@@ -1,4 +1,4 @@
-# Install script for directory: D:/#00 Core Basics/00_DSA_PS_2024/Level_1/01_Prefix_Freqance/02_Play_Code/C++/ContestCL
+# Install script for directory: D:/00_Core_Basics/00_Algorithm_PS_2024/Level_1/01_Prefix_Frequeny/03_Ps/C++/ContestCL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/#00 Core Basics/00_DSA_PS_2024/Level_1/01_Prefix_Freqance/02_Play_Code/C++/ContestCL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/00_Core_Basics/00_Algorithm_PS_2024/Level_1/01_Prefix_Frequeny/03_Ps/C++/ContestCL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

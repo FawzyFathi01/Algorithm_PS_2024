@@ -20,37 +20,33 @@ void Start_Contest () {
 }
 /****************************************************/
 
-void Solve () {
-    int arr[3];
-    for (int i = 0;i<3;i++){
-        cin>>arr[i];
-    }
-
-
-
-    for (int i = 0;i<5 ; i++){
-        int mn = INT_MAX;
-        int idx = 0;
-        for (int j = 0;j<3;j++){
-            if (arr[j] < mn){
-                mn = arr[j];
-                idx = j;
-            }
+void Pangram () {
+    bool freq[30] = {false};
+    int n;
+    cin >> n;
+    string str;
+    cin >> str;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32;
+        if (freq[str[i] - 'a'] == (int)false) {
+            count++;
+            freq[str[i] - 'a'] = true;
         }
-        arr[idx]++;
     }
-
-    
-    int mul = arr[0] * arr[1] * arr[2];
-    cout<<mul<<endl;
+    (count == 26) ? cout << "YES" << endl : cout << "NO" << endl;
 }
+
+
+
+
 
 int main () {
     Start_Contest();
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
-        Solve();
+        Pangram();
     }
 
     return 0;
