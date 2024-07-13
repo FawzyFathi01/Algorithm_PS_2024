@@ -41,7 +41,7 @@ Given an array `arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]` and two range updates:
     - Increment `arr[4]` by `3`.
     - Decrement `arr[10]` by `3`.
 
-After applying all updates, compute the cumulative sum to obtain the final updated array: `[0, 1, 1, 4, 4, 4, 4, 3, 3, 0]`.
+After applying all updates, compute the cumulative sum to obtain the final updated array: `[0, 0, 1, 1, 4, 4, 4, 4, 3, 3]`.
 
 ## Implementation in C++
 This repository includes implementations of these concepts in C++, showcasing how to build and utilize prefix and partial sums effectively. Check the source code files for detailed examples and usage.
