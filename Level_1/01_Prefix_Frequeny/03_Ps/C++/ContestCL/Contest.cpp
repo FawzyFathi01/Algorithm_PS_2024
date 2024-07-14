@@ -38,6 +38,34 @@ void Pangram () {
 }
 
 
+void  Letter() {
+    string s1, s2;
+    getline(cin,s1);
+    getline(cin,s2);
+
+    map<char,int> m1;
+    map<char,int> m2;
+
+    for(int i = 0;i<(int)s1.length();i++){
+        m1[s1[i]]++;
+    }
+
+    for(int i = 0;i<(int)s2.length();i++){
+        m2[s2[i]]++;
+    }
+
+    m2.erase(' ');
+
+    for (auto m : m2){
+
+        if ( (m.second > m1[m.first] ) ){
+            cout<<"NO"<<endl;
+            return;
+        }
+    }
+
+    cout<<"YES"<<endl;
+}
 
 
 
@@ -46,7 +74,8 @@ int main () {
     int t = 1;
     //cin >> t;
     while (t--) {
-        Pangram();
+        //Pangram();
+        Letter();
     }
 
     return 0;

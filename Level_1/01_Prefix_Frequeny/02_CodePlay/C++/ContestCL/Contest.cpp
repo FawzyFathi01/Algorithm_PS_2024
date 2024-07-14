@@ -117,7 +117,6 @@ void Solve_3() {
         5 2 4 1 8
     */
 
-
     int size;
     cin >> size;
     int arr[100000];
@@ -145,12 +144,10 @@ void Solve_3() {
     for (int i = 1; i <= idx; i++) {
         cout << arr[i] << " ";
     }
-
     cout << endl << "Secend Array : " << endl;
     for (int i = idx + 1; i <= size; i++) {
         cout << arr[i] << " ";
     }
-
 }
 
 
