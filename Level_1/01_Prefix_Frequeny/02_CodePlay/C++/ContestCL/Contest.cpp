@@ -98,7 +98,59 @@ void Solve_3() {
     // Task Other
     // Arr ==> a , b / Min ( Sum(a) - Sum(b) )
 
-    cout<<"test";
+    // input
+    // 8
+    // 1 9 10 5 2 4 1 8
+
+    //OutPut
+    /*
+       1 10 20 25 27 31 32 40 RES : 38
+        RES : 20
+        RES : 0
+        RES : 10
+        RES : 14
+        RES : 22
+        RES : 24
+        First Array :
+        1 9 10
+        Secend Array :
+        5 2 4 1 8
+    */
+
+
+    int size;
+    cin >> size;
+    int arr[100000];
+    for (int i = 1; i <= size; i++) {
+        cin >> arr[i];
+    }
+    int prefix[100000];
+    for (int i = 1; i <= size; i++) {
+        prefix[i] = arr[i] + prefix[i - 1];
+    }
+    for (int i = 1;i<=size;i++){
+        cout<<prefix[i]<<" ";
+    }
+    int idx = 1;
+    int div = INT_MAX;
+    for (int i=1;i<size;i++){
+        int res =abs( (prefix[size] - prefix[i]) - prefix[i]);
+        cout<<"RES : "<<res <<endl;
+        if (res < div){
+            div = res;
+            idx = i;
+        }
+    }
+    cout<<"First Array : "<<endl;
+    for (int i = 1;i<=idx;i++){
+        cout<<arr[i]<<" ";
+    }
+
+    cout<<endl<<"Secend Array : "<<endl;
+    for (int i = idx+1;i<=size;i++){
+        cout<<arr[i]<<" ";
+    }
+
 }
 
 
@@ -141,7 +193,7 @@ int main () {
     int t = 1;
     // cin >> t;
     while (t--) {
-        Solve_4();
+        Solve_3();
     }
 
     return 0;

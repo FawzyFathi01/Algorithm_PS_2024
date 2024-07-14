@@ -1,1 +1,11 @@
-0 1 1 4 4 4 4 3 3 0 
+1 10 20 25 27 31 32 40 RES : 38
+RES : 20
+RES : 0
+RES : 10
+RES : 14
+RES : 22
+RES : 24
+First Array : 
+1 9 10 
+Secend Array : 
+5 2 4 1 8 
