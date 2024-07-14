@@ -97,6 +97,8 @@ void Solve_2() {
 void Solve_3() {
     // Task Other
     // Arr ==> a , b / Min ( Sum(a) - Sum(b) )
+
+    cout<<"test";
 }
 
 
