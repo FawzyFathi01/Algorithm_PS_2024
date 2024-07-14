@@ -128,27 +128,27 @@ void Solve_3() {
     for (int i = 1; i <= size; i++) {
         prefix[i] = arr[i] + prefix[i - 1];
     }
-    for (int i = 1;i<=size;i++){
-        cout<<prefix[i]<<" ";
+    for (int i = 1; i <= size; i++) {
+        cout << prefix[i] << " ";
     }
     int idx = 1;
     int div = INT_MAX;
-    for (int i=1;i<size;i++){
-        int res =abs( (prefix[size] - prefix[i]) - prefix[i]);
-        cout<<"RES : "<<res <<endl;
-        if (res < div){
+    for (int i = 1; i < size; i++) {
+        int res = abs((prefix[size] - prefix[i]) - prefix[i]);
+        cout << "RES : " << res << endl;
+        if (res < div) {
             div = res;
             idx = i;
         }
     }
-    cout<<"First Array : "<<endl;
-    for (int i = 1;i<=idx;i++){
-        cout<<arr[i]<<" ";
+    cout << "First Array : " << endl;
+    for (int i = 1; i <= idx; i++) {
+        cout << arr[i] << " ";
     }
 
-    cout<<endl<<"Secend Array : "<<endl;
-    for (int i = idx+1;i<=size;i++){
-        cout<<arr[i]<<" ";
+    cout << endl << "Secend Array : " << endl;
+    for (int i = idx + 1; i <= size; i++) {
+        cout << arr[i] << " ";
     }
 
 }
