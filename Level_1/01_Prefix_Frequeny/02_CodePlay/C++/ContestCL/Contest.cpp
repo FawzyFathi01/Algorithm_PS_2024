@@ -85,9 +85,9 @@ void Solve_2() {
         cout << endl;
         while (q--) {
             cin >> a >> b;
-            //if (freSum[a] == 0) res = freSum[b];
+            //if (a == 0) res = freSum[b];
             //else res = freSum[b] - freSum[a];
-            (freSum[a] == 0) ? res = freSum[b] : res = freSum[b] - freSum[a];
+            (a == 0) ? res = freSum[b] : res = freSum[b] - freSum[a];
             cout << "Count of Appear Num ( " << num << " ) From " << a << " to " << b << " : " << res << endl;
         }
 

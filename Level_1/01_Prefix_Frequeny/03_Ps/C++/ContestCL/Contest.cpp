@@ -36,8 +36,6 @@ void Pangram () {
     }
     (count == 26) ? cout << "YES" << endl : cout << "NO" << endl;
 }
-
-
 void  Letter() {
     string s1, s2;
     getline(cin,s1);
@@ -66,6 +64,48 @@ void  Letter() {
 
     cout<<"YES"<<endl;
 }
+void Good_Array () {
+    /**
+     * Algorithm
+     * 1- Map <int , int > for element Array (arr) // frequency
+     * 2- res = sumArray - arr[idx] , Res is Even only
+     * 3- Check ( Res / 2 ) in map , spatial Cass (res / 2) == arr[i] && MyMap[res / 2] >= 2 , true ==> ans.Add(idx)
+     *
+     */
+    // Improve this Code
+
+    int n;
+    cin >> n;
+    ll arr[n];
+    vector<ll> ans;
+    map<ll, ll> MyMap;
+    ll sum = 0;
+
+    for (auto &item: arr) {
+        cin >> item;
+        sum += item * 1ll;
+        MyMap[item]++;
+    }
+
+
+    // ✔ Sum , ✔ Map
+    for (int i = 0; i < n; i++) {
+        ll res = sum - arr[i];
+        MyMap[arr[i]]--;
+        if (res % 2 == 0 && MyMap[(res / 2)]) {
+            ans.push_back(i);
+        }
+        MyMap[arr[i]]++;
+    }
+
+    cout << ans.size() << endl;
+    for (auto item: ans) {
+        cout << (item + 1) << " ";
+    }
+    cout << endl;
+
+
+}
 
 
 
@@ -75,7 +115,8 @@ int main () {
     //cin >> t;
     while (t--) {
         //Pangram();
-        Letter();
+        //Letter();
+        Good_Array();
     }
 
     return 0;
