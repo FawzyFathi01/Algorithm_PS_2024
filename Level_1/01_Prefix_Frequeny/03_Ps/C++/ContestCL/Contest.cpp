@@ -30,41 +30,42 @@ void Pangram () {
     int count = 0;
     for (int i = 0; i < n; i++) {
         if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32;
-        if (freq[str[i] - 'a'] == (int)false) {
+        if (freq[str[i] - 'a'] == (int) false) {
             count++;
             freq[str[i] - 'a'] = true;
         }
     }
     (count == 26) ? cout << "YES" << endl : cout << "NO" << endl;
 }
+
 void  Letter() {
     string s1, s2;
-    getline(cin,s1);
-    getline(cin,s2);
+    getline(cin, s1);
+    getline(cin, s2);
 
-    map<char,int> m1;
-    map<char,int> m2;
+    map<char, int> m1;
+    map<char, int> m2;
 
-    for(int i = 0;i<(int)s1.length();i++){
+    for (int i = 0; i < (int) s1.length(); i++) {
         m1[s1[i]]++;
     }
 
-    for(int i = 0;i<(int)s2.length();i++){
+    for (int i = 0; i < (int) s2.length(); i++) {
         m2[s2[i]]++;
     }
 
     m2.erase(' ');
+    for (auto m: m2) {
 
-    for (auto m : m2){
-
-        if ( (m.second > m1[m.first] ) ){
-            cout<<"NO"<<endl;
+        if ((m.second > m1[m.first])) {
+            cout << "NO" << endl;
             return;
         }
     }
-
-    cout<<"YES"<<endl;
+    cout << "YES" << endl;
 }
+
+
 void Good_Array () {
     /**
      * Algorithm
@@ -104,9 +105,8 @@ void Good_Array () {
         cout << (item + 1) << " ";
     }
     cout << endl;
-
-
 }
+
 void Empty_array() {
     /**
      * Algorithm
@@ -118,8 +118,10 @@ void Empty_array() {
      * 2- To affect the item.value use & ref ==> for (auto item&:MyMap)
      */
 
-    int n; cin >> n;
-    map<int, int> myMap; int arr[n];
+    int n;
+    cin >> n;
+    map<int, int> myMap;
+    int arr[n];
 
     for (auto &item: arr) {
         cin >> item;
@@ -143,48 +145,46 @@ void Worms () {
      * 2- Search Lower_bound as Find (Qa) or x : x first element large from ( Qa )
      * 3- Return Index for Res From Search.
      * */
-
     int n;
     cin >> n;
     vector<int> v(n);
-    cin>>v[0];
+    cin >> v[0];
     for (int i = 1; i < n; i++) {
         cin >> v[i];
         v[i] += v[i - 1];
     }
-
-
-    int q; cin>>q;
+    int q;
+    cin >> q;
     while (q--) {
 
-        int a; cin>>a;
+        int a;
+        cin >> a;
         int it = lower_bound(v.begin(), v.end(), a) - v.begin();
-        cout << it+1<< endl;
+        cout << it + 1 << endl;
 
     }
-
-
 }
-void Sereja_and_Suffixes (){
+void Sereja_and_Suffixes () {
     /**
      * Algorithm
      * 1- Array Ans for count disc , set form end to begin Array
      * 2- insert set.count into Ans
      * */
 
-    int n,m;
-    cin>>n>>m;
+    int n, m;
+    cin >> n >> m;
     vector<int> arr(n);
     set<int> disc;
     vector<int> ans(n);
-    for (auto &item : arr)cin>>item;
-    for (int i = n-1;i>=0;--i){
+    for (auto &item: arr)cin >> item;
+    for (int i = n - 1; i >= 0; --i) {
         disc.insert(arr[i]);
-        ans[i] =(int)disc.size();
+        ans[i] = (int) disc.size();
     }
-    while (m--){
-        int a; cin>>a;
-        cout<<ans[a-1]<<endl;
+    while (m--) {
+        int a;
+        cin >> a;
+        cout << ans[a - 1] << endl;
     }
 }
 
