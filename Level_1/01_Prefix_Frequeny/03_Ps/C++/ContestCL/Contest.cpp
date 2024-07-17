@@ -107,7 +107,6 @@ void Good_Array () {
 
 
 }
-
 void Empty_array() {
     /**
      * Algorithm
@@ -137,6 +136,58 @@ void Empty_array() {
         cout << endl;
     }
 }
+void Worms () {
+    /**
+     * Algorithm
+     * 1- Prefix Array For element Array
+     * 2- Search Lower_bound as Find (Qa) or x : x first element large from ( Qa )
+     * 3- Return Index for Res From Search.
+     * */
+
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    cin>>v[0];
+    for (int i = 1; i < n; i++) {
+        cin >> v[i];
+        v[i] += v[i - 1];
+    }
+
+
+    int q; cin>>q;
+    while (q--) {
+
+        int a; cin>>a;
+        int it = lower_bound(v.begin(), v.end(), a) - v.begin();
+        cout << it+1<< endl;
+
+    }
+
+
+}
+void Sereja_and_Suffixes (){
+    /**
+     * Algorithm
+     * 1- Array Ans for count disc , set form end to begin Array
+     * 2- insert set.count into Ans
+     * */
+
+    int n,m;
+    cin>>n>>m;
+    vector<int> arr(n);
+    set<int> disc;
+    vector<int> ans(n);
+    for (auto &item : arr)cin>>item;
+    for (int i = n-1;i>=0;--i){
+        disc.insert(arr[i]);
+        ans[i] =(int)disc.size();
+    }
+    while (m--){
+        int a; cin>>a;
+        cout<<ans[a-1]<<endl;
+    }
+}
+
 
 int main () {
     Start_Contest();
@@ -146,7 +197,10 @@ int main () {
         //Pangram();
         //Letter();
         //Good_Array();
-        Empty_array();
+        //Empty_array();
+        //Worms();
+        Sereja_and_Suffixes();
+
     }
 
     return 0;
