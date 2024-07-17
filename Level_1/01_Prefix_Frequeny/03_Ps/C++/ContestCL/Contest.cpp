@@ -19,6 +19,7 @@ void Start_Contest () {
 #endif
 }
 /****************************************************/
+//Goal - ✔ , X
 
 void Pangram () {
     bool freq[30] = {false};
@@ -107,7 +108,35 @@ void Good_Array () {
 
 }
 
+void Empty_array() {
+    /**
+     * Algorithm
+     * 1- Map For Element array (frequency)
+     * 2- iterate item map, if item.value ==0 then Skip (print item.key , item.value--) (n*m).
+     *
+     * Notes :-
+     * 1- map.erase () !! with foreach
+     * 2- To affect the item.value use & ref ==> for (auto item&:MyMap)
+     */
 
+    int n; cin >> n;
+    map<int, int> myMap; int arr[n];
+
+    for (auto &item: arr) {
+        cin >> item;
+        myMap[item]++;
+    }
+
+    while (n) {
+        for (auto &item: myMap) {
+            if (item.second == 0)continue;
+            cout << item.first << " ";
+            item.second--;
+            n--;
+        }
+        cout << endl;
+    }
+}
 
 int main () {
     Start_Contest();
@@ -116,7 +145,8 @@ int main () {
     while (t--) {
         //Pangram();
         //Letter();
-        Good_Array();
+        //Good_Array();
+        Empty_array();
     }
 
     return 0;
