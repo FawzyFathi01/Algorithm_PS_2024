@@ -8,7 +8,7 @@ using namespace std;
 #define pre cout.precision(20);
 /*****************************************************/
 const double pi =  ::acos(-1);
-const int N = 2e5 + 9, MOD = 1e9 + 7;
+const int N = 1e5+9, MOD = 1e9 + 7;
 const ll OO = 0x3f3f3f3f3f3f3f3f;
 /*****************************************************/
 void Start_Contest () {
@@ -189,6 +189,91 @@ void Sereja_and_Suffixes () {
 }
 
 
+
+ll arrInput [N] = {};
+ll CounterArr[N] = {};
+ll Quire[N] = {};
+
+struct Triple {
+    int x;
+    int y;
+    ll z;
+};
+
+void Greg_and_Array () {
+    /**
+     *
+     * Algorithm :-
+     * 1- Partial Sum For ArrQuire ( Update = 1 ), And prefix sum for ArrQuire
+     * 2- Partial Sum For CounterArr After UpDate OperationArr with (d(tuple.z) * Quite[i] )
+     * 3- Prefix Sum For CounterArr
+     * 4- Res = (CounterArr After prefix) [i] * ArrInput [i]
+     *
+     * Note :-
+     * 1- Global Array For Partial Sum if initialize by 0
+     * 2- Prefix Sum for Partial Sum Only , Array + prefix
+     */
+
+
+    int n, m, k;
+    vector<Triple> operation;
+    cin >> n >> m >> k;
+
+    // input Array
+    for (int i = 1; i <= n; i++) {
+        cin >> arrInput[i];
+    }
+
+
+
+    // input Operations
+    for (int i = 0; i < m; i++) {
+        int a, b;
+        ll c;
+        cin >> a >> b >> c;
+        operation.push_back({a, b, c});
+    }
+
+
+
+    // input Quire
+    for (int i = 0; i < k; i++) {
+        int a, b;
+        cin >> a >> b;
+        Quire[a]++;
+        Quire[b + 1]--;
+    }
+
+
+    for (int i = 1; i <= m; i++) {
+        Quire[i] += Quire[i - 1];
+    }
+
+
+    int j = 1;
+    for (auto item: operation) {
+        CounterArr[item.x] += (item.z * Quire[j]);
+        CounterArr[item.y + 1] -= (item.z * Quire[j]);
+        j++;
+    }
+
+
+    for (int i = 1; i <= n; i++) {
+        CounterArr[i] += CounterArr[i - 1];
+    }
+
+
+    for (int i = 1; i <= n; i++) {
+        ll ans = CounterArr[i] + arrInput[i];
+        cout << ans << " ";
+    }
+    cout << endl;
+
+}
+
+
+
+
 int main () {
     Start_Contest();
     int t = 1;
@@ -199,8 +284,8 @@ int main () {
         //Good_Array();
         //Empty_array();
         //Worms();
-        Sereja_and_Suffixes();
-
+        //Sereja_and_Suffixes();
+        //Greg_and_Array();
     }
 
     return 0;
