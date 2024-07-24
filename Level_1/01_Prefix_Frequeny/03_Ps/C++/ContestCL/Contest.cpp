@@ -308,6 +308,32 @@ void Kuriyama_Mirai_Stones() {
     }
 
 }
+void  Andryusha_and_Socks () {
+
+    /**
+     * Algorithm :-
+     * 1- map for input
+     * 2- if (m[a] == 2 ) => mx (mx,mp.size) , mp.erase[a]
+     *
+     * */
+
+    int n;
+    cin >> n;
+    n *= 2;
+    map<int, int> mp;
+    int mx = 0;
+    while (n--) {
+        int a;
+        cin >> a;
+        mp[a]++;
+        if (mp[a] == 2) {
+            mx = max(mx, (int) mp.size());
+            mp.erase(a);
+        }
+    }
+    cout << mx << endl;
+}
+
 
 
 
@@ -324,7 +350,8 @@ int main () {
         //Worms();
         //Sereja_and_Suffixes();
         //Greg_and_Array();
-        Kuriyama_Mirai_Stones();
+        //Kuriyama_Mirai_Stones();
+        Andryusha_and_Socks();
 
     }
 
