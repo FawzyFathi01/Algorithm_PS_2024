@@ -271,6 +271,44 @@ void Greg_and_Array () {
 
 }
 
+vector<ll> arr(N,0);
+vector<ll> sortedArr(N,0);
+void Kuriyama_Mirai_Stones() {
+
+    /**
+     * Algorithm :-
+     * 1- prefix sum for ( arr and sorted arr)
+     * 2- Answer quire for type 1 ==> arr , type 2 ==> sorted arr
+     * */
+
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cin >> arr[i];
+        sortedArr[i] = arr[i];
+    }
+
+    sort(sortedArr.begin() + 1, sortedArr.begin() + n + 1);
+
+
+    for (int i = 1; i <= n; i++) {
+        arr[i] += arr[i - 1], sortedArr[i] += sortedArr[i - 1];
+    }
+
+
+    int q, t, a, b;
+    cin >> q;
+    while (q--) {
+        cin >> t >> a >> b;
+        if (t == 1) {
+            cout << arr[b] - arr[a - 1] << endl;
+        } else {
+            cout << sortedArr[b] - sortedArr[a - 1] << endl;
+        }
+    }
+
+}
+
 
 
 
@@ -286,6 +324,8 @@ int main () {
         //Worms();
         //Sereja_and_Suffixes();
         //Greg_and_Array();
+        Kuriyama_Mirai_Stones();
+
     }
 
     return 0;
