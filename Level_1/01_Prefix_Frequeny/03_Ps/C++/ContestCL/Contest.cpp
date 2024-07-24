@@ -335,6 +335,51 @@ void  Andryusha_and_Socks () {
 }
 
 
+void PolycarpPractice() {
+
+    /**
+     * Algorithm :-
+     * 1- sort in copy array
+     * 2- mapping for k-number from sorted array , sum += k element from sorted array
+     * 3- iterate on array check if mp[arr[i]] > 0 => push idxArray_(i)
+     * 4- Calculate Number of problem for each day from (IdxArray).
+     * */
+
+    int n, k;
+    cin >> n >> k;
+    int arr[n];
+    vector<int> arrSorted(n);
+    map<int, int> mp;
+    vector<int> idxs;
+    for (int i = 0; i < n; i++)cin >> arr[i], arrSorted[i] = arr[i];
+    sort(arrSorted.begin(), arrSorted.end(), greater<int>());
+
+    ll sum = 0;
+    for (int i = 0; i < k; i++) {
+        mp[arrSorted[i]]++;
+        sum += arrSorted[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (mp[arr[i]] > 0) {
+            idxs.push_back(i);
+            mp[arr[i]]--;
+        }
+    }
+
+    cout << sum << endl;
+    if (idxs.size() == 1) {
+        cout << n << endl;
+        return;
+    }
+
+    cout << idxs[1] - idxs[0] + idxs[0] << " ";
+    for (int i = 1; i < k - 1; i++) {
+        cout << idxs[i + 1] - idxs[i] << " ";
+    }
+    cout << n - idxs[k - 1] << endl;
+
+}
 
 
 
@@ -351,7 +396,8 @@ int main () {
         //Sereja_and_Suffixes();
         //Greg_and_Array();
         //Kuriyama_Mirai_Stones();
-        Andryusha_and_Socks();
+        //Andryusha_and_Socks();
+        PolycarpPractice();
 
     }
 
