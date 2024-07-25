@@ -381,12 +381,58 @@ void PolycarpPractice() {
 
 }
 
+void Permutation () {
+    /**
+     * Algorithm :-
+     * 1- Pre for arr (each min => Before)
+     * 2- sfx fpr arr (each min => After)
+     * 3- Ans =  min (arr-1[a-1] , arr-2[b+1]) as a,b => quire
+     *
+     * Explain :-
+     * n = 6    0 1 2 3 4 5 6 7
+     *          ----------------
+     * arr :      2 6 1 5 3 4
+     * Pre :=>  7 2 2 1 1 1 1
+     * Sfx :      1 1 1 3 3 4 7 <=
+     *
+     * quire => a,b
+     * ans : min (arr-1[a-1] , arr-2[b+1])
+     * */
+
+    int n, q;
+    cin >> n >> q;
+    int arr[n + 5];
+    int arrPre[n + 5];
+    int arrSfx[n + 5];
+
+    arrPre[0] = n + 1, arrSfx[n + 1] = n + 1;
+    for (int i = 1; i <= n; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 1; i <= n; i++) {
+        arrPre[i] = min(arrPre[i - 1], arr[i]);
+    }
+
+    for (int i = n; i >= 1; --i) {
+        arrSfx[i] = min(arrSfx[i + 1], arr[i]);
+    }
+
+    while (q--) {
+        int a, b;
+        cin >> a >> b;
+        cout << min(arrPre[a - 1], arrSfx[b + 1]) << endl;
+    }
+
+}
+
 
 
 int main () {
-    Start_Contest();
+    //Start_Contest();
+    FAST
+    freopen("mex.in", "r", stdin);
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) {
         //Pangram();
         //Letter();
@@ -397,9 +443,13 @@ int main () {
         //Greg_and_Array();
         //Kuriyama_Mirai_Stones();
         //Andryusha_and_Socks();
-        PolycarpPractice();
+        //PolycarpPractice();
+        //Permutation ();
 
     }
 
     return 0;
 }
+
+
+
